@@ -1,0 +1,369 @@
+* {
+  outline: none;
+}
+
+.navigation {
+  padding: 13px 0 0;
+  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  background-color: rgba(22, 22, 22, 0.96);
+  border-bottom: 1px solid #111;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  transition: all 0.6s;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+.navigation.hidden {
+  margin-top: -120px;
+  background-color: transparent;
+  border-bottom: none;
+  color: #000;
+}
+.navigation .templates-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.navigation .templates-list li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+
+
+  margin: 0 7px;
+}
+.navigation .templates-list li.selected .preview {
+  border-color: #fff;
+}
+.navigation .templates-list .preview {
+  height: 80px;
+  width: 80px;
+  background-size: cover;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  border: 3px solid #303030;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.navigation .templates-list .label {
+  text-align: center;
+  margin: 3px 0 0;
+
+}
+.navigation .btn-show {
+  text-align: right;
+  margin: 5px 5px 0px 0;
+  cursor: pointer;
+
+}
+.navigation .btn-show svg {
+  height: 30px;
+}
+@media screen and (max-width: 600px) {
+  .navigation .btn-show svg path {
+    fill: #fff !important;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.sharepic-app {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  height: calc(100vh - 5px);
+  font-family: sans-serif;
+}
+.sharepic-app .tools {
+  flex: none;
+  width: 300px;
+  font-size: 1.2em;
+  background-color: #303030;
+}
+.sharepic-app .preview {
+  flex: 1;
+  height: 100%;
+
+}
+@media screen and (max-width: 600px) {
+  .sharepic-app {
+    display: block;
+  }
+  .sharepic-app .tools {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .sharepic-app .preview {
+
+  }
+  .navigation.hidden {
+    background-color: #111;
+    color: #fff;
+  }
+}
+
+.sharepic-app .preview > svg {
+  width: auto;
+  height: auto;
+  max-width: calc(100vh - 5px);
+  max-height: 100%;
+  z-index: 2;
+  margin: auto;
+  display: block;
+
+}
+.sharepic-app .tools {
+  padding: 3px 5px;
+  overflow: scroll;
+}
+.sharepic-app .tools ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sharepic-app .tools li {
+  margin: 0;
+  padding: 10px 0 !important;
+  font-size: 1em;
+  font-family: "Helvetica Neue";
+  font-weight: 200;
+  letter-spacing: 0.3px;
+}
+.sharepic-app .tools li .label {
+
+}
+.sharepic-app .tools li {
+  display: block;
+  padding: 3px 0;
+
+}
+.sharepic-app .tools li + li {
+  /*border-top: 1px solid #c4c4c4;*/
+}
+.sharepic-app .tools li .label {
+  display: block;
+  margin: 5px 0;
+}
+.sharepic-app .tools li .label span {
+  display: inline-block;
+  background-color: #1B7340;
+  border-radius: 30px;
+  color: #fff;
+  padding: 3px 12px;
+}
+.sharepic-app .tools li .controls {
+  margin-left: 10px;
+  margin-top: 6px;
+}
+.sharepic-app .tools li textarea {
+  width: calc(100% - 30px);
+  height: 50px;
+  border: none;
+  font-size: 1.1em;
+  padding: 4px 8px;
+  -webkit-appearance: none;
+  border: 2px solid transparent;
+}
+.sharepic-app .tools li textarea:focus {
+  border-color: #1DA64A;
+}
+.sharepic-app .tools li input[type="text"] {
+  width: calc(100% - 30px);
+  font-size: 1.1em;
+  padding: 4px 8px;
+  -webkit-appearance: none;
+  border: 2px solid transparent;
+}
+.sharepic-app .tools li input[type="text"]:focus {
+  border-color: #1DA64A;
+}
+.sharepic-app .tools li input[type="range"] {
+  -webkit-appearance: none;
+  width: calc(100% - 10px);
+  height: 3px;
+  background-color: #1DA64A;
+  border-radius: 2px;
+}
+.sharepic-app .tools li input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.sharepic-app .tools button {
+  background-color: #1DA64A;
+  color: #fff;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+.sharepic-app .tools input[type="file"] {
+  display: none;
+}
+
+.sharepic-app .tools .controls .selection {
+  margin: 15px 0 0;
+}
+.sharepic-app .tools .controls .selection .selection-item {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #383838;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+  overflow: hidden;
+}
+.sharepic-app .tools .controls .selection .selection-item-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.test-image {
+  position: fixed;
+  left: 00%;
+  top: 00%;
+}
+.test-text {
+  position: absolute;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  white-space: nowrap;
+}
+#render-canvas {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: #fff;
+}
+
+
+
+.progress-bar {
+  height: 10px;
+  width: 300px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.progress-bar .progress-value {
+  height: 100%;
+  width: 100%;
+  background-color: #1DA64A;
+  animation: progressBar 2.5s;
+}
+@keyframes progressBar {
+  from {
+    width: 0%;
+    height: 100%;
+  }
+}
+.load-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.load-screen .progress-bar {
+  position: fixed;
+  width: calc(100% - 20px);
+  left: 10px;
+  top: calc(50% - 5px);
+}
+.load-screen {
+  display: none;
+}
+.load-screen.show {
+  display: block;
+}
+
+
+
+#render-canvas {
+  position: fixed;
+  top: 120%;
+  left: 120%;
+}
+
+
+.export {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: none;
+  text-align: center;
+}
+.export.show {
+  display: block;
+}
+.export .export-popup {
+  display: inline-block;
+  height: calc(100% - 30px);
+  left: 10px;
+  top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.export .export-popup .controls {
+  text-align: right;
+  width: calc(100% - 20px);
+}
+.export .export-popup .controls .btn-close {
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.export .export-popup .controls .btn-close svg {
+  height: 100%;
+  width: 100%;
+}
+.export .export-popup .render-image  {
+  background-color: #fff;
+  height: calc(100% - 0px);
+}
+.export .export-popup .render-image img  {
+  display: block;
+  margin: auto;
+  height: calc(100% - 40px);
+}
+.export .overlay {
+
+}
+
+.fix-height .export .export-popup {
+  width: calc(100% - 30px);
+}
+.fix-height .export .export-popup .render-image  {
+  height: auto;
+  width: calc(100% - 10px);
+}
+.fix-height .export .export-popup .render-image img  {
+  height: auto;
+  width: calc(100% - 00px);
+}
+
+
+
+#hidden-file-input {
+  position: fixed;
+  left: 120%;
+  top: 120%;
+}

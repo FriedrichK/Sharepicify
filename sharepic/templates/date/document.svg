@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="100%" height="100%"
+     viewBox="0 0 1200 1200"
+     version="1.1">
+
+
+
+  <g class="main">
+    <image v-bind:xlink:href="backgroundImage.value" v-bind:x="(backgroundImage.info.ratio >= 1 ? -((backgroundImage.info.ratio - 1) * pos) : 0) + '%'" v-bind:y="(backgroundImage.info.ratio < 1 ? -(((1 / backgroundImage.info.ratio) - 1) * pos) : 0) + '%'" v-bind:height="(backgroundImage.info.ratio < 1 ? ((1 / backgroundImage.info.ratio) * 100) : 100) + '%'" v-bind:width="(backgroundImage.info.ratio >= 1 ? (backgroundImage.info.ratio * 100) : 100) + '%'" />
+
+    <rect x="0" y="0" width="100%" height="100%" fill="#1B7340" v-bind:fill-opacity="opacity"/>
+
+    <g>
+      <g v-for="line in title">
+
+        <rect v-bind:x="(1200 - (textInfo(line.toUpperCase(), { fontFamily: 'Jost', fontSize: '200px'}).width + 60)) / 2" v-bind:y="17.5 + 260 * (title.indexOf(line) + 0)" v-bind:height="textInfo(line.toUpperCase(), { fontFamily: 'Jost', fontSize: '200px' }).height - 50" fill="#1DA64A" v-bind:width="textInfo(line.toUpperCase(), { fontFamily: 'Jost', fontSize: '200px'}).width + 60" />
+
+        <text alignment-baseline="middle" text-anchor="middle" x="600" fill="#fff" v-bind:y="35 + 130 + 260 * (title.indexOf(line) + 0)" style="font-size: 200px; font-family: 'Jost', 'Helvetica Neue';">
+          {{ line }}
+        </text>
+
+      </g>
+    </g>
+
+
+    <g>
+      <rect x="-1" y="800" v-bind:width="30 + Math.max(textInfo(date, { fontFamily: 'Jost', fontSize: '150px' }).width, textInfo(location, { fontFamily: 'Jost', fontSize: '85px' }).width) + 50" height="300" fill="#fff" />
+
+      <text x="30" y="950" style="fill: #1DA64A; font-family: 'Jost'; font-size: 150px;" >{{ date }}</text>
+      <text x="30" y="1065" style="fill: #1DA64A; font-family: 'Jost'; font-size: 85px;" >{{ location }}</text>
+    </g>
+
+    <image v-bind:xlink:href="logo" x="930" y="930" height="250" width="250" />
+
+  </g>
+
+</svg>

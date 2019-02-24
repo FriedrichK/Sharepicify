@@ -1,0 +1,81 @@
+{
+  "name": "Sentence",
+  "preview": "sharepic/templates/sentence/preview.jpg",
+  "document": "sharepic/templates/sentence/document.svg",
+  "fonts": [
+    {
+      "name": "Jost",
+      "src": "fonts/jost.ttf",
+      "mime": "font/truetype"
+    },
+    {
+      "name": "Jost-900-Black",
+      "src": "fonts/Jost-900-Black.ttf",
+      "mime": "font/truetype"
+    },
+    {
+      "name": "Merriweather",
+      "src": "fonts/Merriweather-Light.otf",
+      "mime": "font/opentype"
+    }
+  ],
+  "fields": [
+    {
+      "type": "selection",
+      "description": "Background",
+      "key": "backgroundImage",
+      "default": {
+        "value": "sharepic/templates/sentence/default.jpg",
+        "info": {
+          "ratio": 1.8043478261
+        }
+      },
+      "properties": {
+        "items": [
+          {
+            "type": "file"
+          }
+        ]
+      }
+    },
+    {
+      "type": "number",
+      "description": "Position",
+      "key": "pos",
+      "default": 0,
+      "properties": {
+        "value": 0,
+        "max": 100,
+        "min": 0,
+        "kind": "slider"
+      }
+    },
+    {
+      "type": "text",
+      "description": "Title",
+      "key": "title",
+      "default": ["WORLD", "WHALE", "DAY"],
+      "properties": {
+
+      }
+    },
+    {
+      "type": "line",
+      "description": "Subtitle",
+      "key": "subtitle",
+      "default": "TODAYS IS",
+      "properties": {
+
+      }
+    },
+    {
+      "type": "line",
+      "description": "Info Text",
+      "key": "info",
+      "default": "www.fridaysforfuture.de   #fridaysforfuture",
+      "properties": {
+
+      }
+    }
+  ]
+}
