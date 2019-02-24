@@ -76,6 +76,10 @@ class PicCreator {
 
           dataController[field.key] = value;
 
+          setTimeout(function() {
+            self.replaceURLsWithData();
+          }, 500);
+
         });
         this.toolsList.append(settingLi);
       }
@@ -150,7 +154,7 @@ class PicCreator {
 
       const dataURL = 'data:' + headers["content-type"] + ";base64," + base64Str;
 
-      img.setAttributeNS('http://www.w3.org/1999/xlink', 'href', dataURL);
+      img.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', dataURL);
 
       //const mime =
     }
