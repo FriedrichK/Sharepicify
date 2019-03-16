@@ -1,0 +1,34 @@
+{
+  "name": "Logo",
+  "preview": "sharepic/templates/logo/preview.svg",
+  "document": "sharepic/templates/logo/document.svg",
+  "fonts": [
+    {
+      "name": "Jost",
+      "src": "fonts/jost.ttf",
+      "mime": "font/truetype"
+    },
+    {
+      "name": "Jost-900-Black",
+      "src": "fonts/Jost-900-Black.ttf",
+      "mime": "font/truetype"
+    },
+    {
+      "name": "Merriweather",
+      "src": "fonts/Merriweather-Light.otf",
+      "mime": "font/opentype"
+    }
+  ],
+  "fields": [
+
+    {
+      "type": "chars",
+      "description": "Title",
+      "key": "title",
+      "default": "Mainz",
+      "properties": {
+
+      }
+    }
+  ]
+}

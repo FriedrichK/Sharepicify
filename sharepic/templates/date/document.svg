@@ -31,7 +31,7 @@
       <text x="30" y="1065" style="fill: #1DA64A; font-family: 'Jost'; font-size: 85px;" >{{ location }}</text>
     </g>
 
-    <image v-bind:xlink:href="logo" x="930" y="930" height="250" width="250" />
+    <image v-bind:xlink:href="typeof logo == 'object' ? logo.value : logo" x="930" y="930" height="250" width="250" />
 
   </g>
 

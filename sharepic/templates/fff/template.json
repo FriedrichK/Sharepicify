@@ -7,6 +7,11 @@
       "name": "Jost",
       "src": "fonts/jost.ttf",
       "mime": "font/truetype"
+    },
+    {
+      "name": "Merriweather",
+      "src": "fonts/Merriweather-Light.otf",
+      "mime": "font/opentype"
     }
   ],
   "fields": [
@@ -115,6 +120,9 @@
           {
             "type": "value",
             "value": "sharepic/resources/logo-3.svg"
+          },
+          {
+            "type": "file"
           }
         ]
       }

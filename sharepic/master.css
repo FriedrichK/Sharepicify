@@ -26,6 +26,9 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  white-space: nowrap;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .navigation .templates-list li {
   display: inline-block;
@@ -112,8 +115,11 @@ body {
 .sharepic-app .preview > svg {
   width: auto;
   height: auto;
-  max-width: calc(100vh - 5px);
-  max-height: 100%;
+  /*max-width: calc(100vh - 5px);
+  max-height: 100%;*/
+
+  width: 100%;
+  height: 100%;
   z-index: 2;
   margin: auto;
   display: block;
@@ -245,8 +251,19 @@ body {
   left: 0px;
   top: 0px;
   background-color: #fff;
-}
+  width: 500px;
+  height: 500px;
+  z-index: 1000;
+  visibility: hidden;
 
+}
+#draw-img {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: 1000;
+  visibility: hidden;
+}
 
 
 .progress-bar {
@@ -291,11 +308,6 @@ body {
 
 
 
-#render-canvas {
-  position: fixed;
-  top: 120%;
-  left: 120%;
-}
 
 
 .export {
@@ -366,4 +378,10 @@ body {
   position: fixed;
   left: 120%;
   top: 120%;
+}
+.hidden-fonts {
+  visibility: hidden;
+  position: fixed;
+  top: -100%;
+  left: -100%;
 }

@@ -18,6 +18,9 @@
         document.body.classList.remove(ratio >= 1 ? "fix-height" : "fix-width");
         document.body.classList.add(ratio >= 1 ? "fix-width" : "fix-height");
       }
+
+
+
     </script>
 
     <style id="font-sheet">
@@ -34,6 +37,7 @@
         src: url("fonts/Merriweather-Light.otf");
       }
     </style>
+
     <style>
       body {
         margin: 0;
@@ -102,11 +106,25 @@
 
     </div>
 
+    <img id="draw-img"/>
     <canvas id="render-canvas">
 
     </canvas>
 
     <input type="file" id="hidden-file-input">
+
+    <div class="hidden-fonts">
+      <span style="font-family: 'Jost';">Test</span>
+      <span style="font-family: 'Merriweather';">Test</span>
+      <span style="font-family: 'Jost-900-Black';">Test</span>
+    </div>
+
+    <script type="text/javascript">
+      document.fonts.ready.then(function () {
+        //alert('All fonts in use by visible text have loaded.');
+        //alert('Roboto loaded? ' + document.fonts.check('1em Roboto'));  // true
+      });
+    </script>
 
   </body>
   <script src="js/app.js" charset="utf-8"></script>

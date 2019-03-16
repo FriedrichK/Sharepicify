@@ -1,0 +1,8 @@
+RewriteEngine on
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{ENV:HTTPS} !=on
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+#RewriteRule .*://mein-abgeordneter-hetzt.de/(.*) https://localhost:61943/$1 [P]

@@ -24,6 +24,8 @@ class PicCreator {
 
       this.previewContainer.innerHTML = doc;
 
+      const viewBox = this.previewSVG.getAttribute("viewBox").split(" ").map(numberStr => parseInt(numberStr));
+
       (async () => {
         const fontSheet = document.createElement("style");
         fontSheet.classList.add("font-sheet");
@@ -51,6 +53,22 @@ class PicCreator {
         fontSheet.innerHTML = fontsStr;
 
         this.previewSVG.insertBefore(fontSheet, this.previewMain);
+
+        const hiddenArea = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        hiddenArea.classList.add("hidden-area");
+
+        hiddenArea.innerHTML = `
+          <rect x="-1000%" y="-1000%" width="1000%" height="2100%" style="fill: #fff;"/>
+          <rect x="100%" y="-1000%" width="1000%" height="2100%" style="fill: #fff;"/>
+
+          <rect x="-1000%" y="-1000%" width="2100%" height="1000%" style="fill: #fff;"/>
+          <rect x="-1000%" y="100%" width="2100%" height="1000%" style="fill: #fff;"/>
+        `;
+
+        this.previewSVG.append(hiddenArea);
+
+
+        //this.previewMain.style = '-webkit-clip-path: polygon(0px 0px, ' + viewBox[2] + 'px 0px, ' + viewBox[2] + 'px ' + viewBox[3] + 'px, 0px ' + viewBox[3] + 'px);';
       })();
 
       const data = {
@@ -102,10 +120,17 @@ class PicCreator {
                   {
                     type: "click",
                     async callback(event) {
-                      const result = await exportMethod.convert(self.previewContainer.getElementsByTagName("svg")[0]);
+                      var tries = 1;
+                      const tryer = setInterval(async function() {
 
+                        const result = await exportMethod.convert(self.previewContainer.getElementsByTagName("svg")[0]);
+                        exportRender(result);
 
-                      exportRender(result);
+                        if (tries >= 5) {
+                          clearInterval(tryer);
+                        }
+                        tries++;
+                      }, 200);
 
                     }
                   }
@@ -406,6 +431,24 @@ const Components = {
       })
     ]
   },
+  chars(field, callback) {
+    return [
+      PicCreator.createElement("input", {
+        attributes: {
+          type: "text",
+          value: field.default
+        },
+        eventListeners: [
+          {
+            type: "input",
+            callback(event) {
+              callback(this.value);
+            }
+          }
+        ]
+      })
+    ]
+  },
   selection(field, callback) {
     return [
       PicCreator.createElement("div", {
@@ -513,24 +556,33 @@ const Export = [
         c.height = viewBox[3];
         var ctx = c.getContext("2d");
 
-        const img = document.createElement("img");
-        img.src = 'data:image/svg+xml;base64,' + Base64.encode(svg.outerHTML);
+        //const img = document.createElement("img");
+        //const img = document.getElementById("draw-img");
+        const img = new Image();
 
+        //img.width = c.width;
+        //img.height = c.height;
+
+        img.src = 'data:image/svg+xml;base64,' + Base64.encode(svg.outerHTML);
         const loadScreen = document.querySelector(".load-screen");
 
         img.addEventListener("load", function() {
           ctx.drawImage(img, 0, 0);
 
-          loadScreen.classList.add("show");
+          const dataURL = c.toDataURL("image/png");
+
+          resolve(dataURL);
+
+          //loadScreen.classList.add("show");
 
 
-          setTimeout(function() {
+          /*setTimeout(function() {
             const dataURL = c.toDataURL("image/png");
 
             resolve(dataURL);
 
             loadScreen.classList.remove("show");
-          }, 2500);
+          }, 1000);*/
         });
       });
     }
