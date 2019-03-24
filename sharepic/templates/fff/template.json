@@ -10,8 +10,8 @@
     },
     {
       "name": "Merriweather",
-      "src": "fonts/Merriweather-Light.otf",
-      "mime": "font/opentype"
+      "src": "fonts/Merriweather Sans.ttf",
+      "mime": "font/truetype"
     }
   ],
   "fields": [
